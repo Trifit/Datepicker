@@ -1,0 +1,82 @@
+* {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.is-hidden {
+	opacity: 0;
+}
+
+.display-grid {
+	@supports (display: grid) {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+	}
+}
+
+.wrapper {
+	@supports (display: grid) {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.active {
+	background-color: red;
+}
+
+ul {
+	list-style: none;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	display: block;
+	text-align: center;
+	background: gray;
+}
+button {
+	display: block;
+	width: 100%;
+}
+
+@for $i from 1 to 8 {
+	.grid-container__#{$i}-cols {
+		@supports (display: grid) {
+			display: grid;
+			grid-template-columns: repeat(#{$i}, 1fr);
+		}
+	}
+	.grid-row-#{$i} {
+		-ms-grid-row: #{$i};
+		grid-row: #{$i};
+	}
+	.grid-col-#{$i} {
+		-ms-grid-column: #{$i};
+		grid-column: #{$i};
+	}
+}
+
+.calendar {
+	width: 600px;
+	overflow: hidden;
+
+	background-color: #fcfdfd;
+	font-size: 0.85rem;
+	color: #414042;
+
+	box-shadow: 3px 3px 10px -2px #5e5e5e;
+	border: 1px solid #757575;
+	padding: 1em;
+
+	&__months {
+		width: 100000px;
+	}
+}
+
+.datepicker-month {
+	display: inline-block;
+	width: 300px;
+}
